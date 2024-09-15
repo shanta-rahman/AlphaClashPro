@@ -23,7 +23,7 @@ function handleKeyboardButtonPress(event){
 
 const currentAlphabate = currentAlphabateElement.innerText;
 const expectedAlphabate = currentAlphabate.toLowerCase();
-console.log(playerPressed,expectedAlphabate);
+// console.log(playerPressed,expectedAlphabate);
 
 
 //Check matched or not 
@@ -53,6 +53,8 @@ if(playerPressed==expectedAlphabate)
 //     // start a new round
     removeBackgroundColorById(expectedAlphabate);
     continueGame();
+    hideElementById('final-score');
+hideElementById('play-ground');
 }
 else
 {
@@ -61,6 +63,11 @@ else
     const currentLife=getTextElementValueById('current-life');
     const updatedLife = currentLife - 1;
     setTextElementValueById('current-life' , updatedLife);
+
+    if(updatedLife == 0)
+    {
+        gameOver();
+    }
 
     //-----------------------------------------------------
 
@@ -104,6 +111,14 @@ setBackgroundColorById(alphabate);
 function play(){
     hideElementById('home-screen');
     showElementById('play-ground');
-    continueGame()
+    hideElementById('final-score');
+    continueGame();
 }
+
+function gameOver(){
+    hideElementById('play-ground');
+    showElementById('final-score');
+    hideElementById('home-screen');
+}
+ 
 
