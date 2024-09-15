@@ -27,7 +27,13 @@ function getTextElementValueById(elementId)
     const element = document.getElementById(elementId);
     const elemenyValueText = element.innerText;
     const value = parseInt(elemenyValueText);
-    return value
+    return value;
+}
+
+function setTextElementValueById(elementId , value)
+{
+    const element = document.getElementById(elementId);
+    element.innerText = value;
 }
 
 function getARandomAlphabate()
